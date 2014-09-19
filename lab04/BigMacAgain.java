@@ -20,10 +20,12 @@ public class BigMacAgain{ //main method
        	    
        	    if(myScanner.hasNextInt()){ //if the answer is an int
        	        int nBigMacs = myScanner.nextInt(); //set nBigMacs to the int
+       	        double BigMacs$ = (int) (((2.22*nBigMacs)*100)/100.0); //create the total cost
        	        
        	        if (nBigMacs > 0){ //if the number is greater than 0
-                System.out.println("You ordered "+nBigMacs+" Big Macs for a cost of"
-                +nBigMacs+"x2.22 ="+(2.22*nBigMacs)); //print the cost of Big Macs
+       	        
+                System.out.println("You ordered "+nBigMacs+" Big Macs for a cost of $"
+                +nBigMacs+"x2.22 = $"+ BigMacs$); //print the cost of Big Macs
                     
        	            }else{ //the number is not greater than 0
                     System.out.println("You did not enter a number greater than 0");
@@ -36,24 +38,27 @@ public class BigMacAgain{ //main method
                     if (answer.equals("Y")){ //if the user inputted Y
                         //print out the cost of fries
                         System.out.println("You ordered fries at a cost of $2.15");
+                        System.out.println("The total cost of the meal is $"+(2.15
+                        + BigMacs$)); //print the total cost of the meal
                         
                         }else if (answer.equals("y")){ //if the user inputted y
                             //print out the cost of fries
                             System.out.println("You ordered fries at a cost of $2.15");
+                            System.out.println("The total cost of the meal is $"+(2.15
+                            + BigMacs$)); //print the total cost of the meal
                             
-                        }else if (answer.equals("N")){ //if the user inputted N
-                            return;
+                        }else if (answer.equals("N")) { //if the user inputted N
+                            System.out.println("The total cost of the meal is $"+
+                            BigMacs$); //print the total cost of the meal
                             
                         }else if (answer.equals("n")){ //if the user inputted n
-                            return;
+                            System.out.println("The total cost of the meal is $"+
+                            BigMacs$); //print the total cost of the meal
                     
                         }else{ //the user put in something not a Y,y,N,or n
                             System.out.println("You did not enter a y,Y,n,or N");
                             return;    //leaves the program
                         }
-                        
-                    System.out.println("The total cost of the meal is "+(2.15+2.22
-                    *nBigMacs)); //print the total cost of the meal
             
        	    
        	        }else{ //the nBigMac was not an int
