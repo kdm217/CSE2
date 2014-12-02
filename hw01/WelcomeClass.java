@@ -248,24 +248,88 @@ public class WelcomeClass{
 // }
 
 public static void main(String[] args){
-    Scanner scan = new Scanner(System.in);
-    System.out.print("Enter an int:");
-    int a = scan.nextInt();
-    System.out.print("Eneter an int greater than"+a+":");
-    int b = scan.nextInt();
-    while(b<=a){
-        System.out.println("Sorry, you eneres"+b+"<="+a+":");
-        b = scan.nextInt();
-    }
-    int answer = sum(a,b);
-    System.out.println(a+"+...+"+b+"="+answer);
+//     Scanner scan = new Scanner(System.in);
+//     System.out.print("Enter an int:");
+//     int a = scan.nextInt();
+//     System.out.print("Eneter an int greater than"+a+":");
+//     int b = scan.nextInt();
+//     while(b<=a){
+//         System.out.println("Sorry, you eneres"+b+"<="+a+":");
+//         b = scan.nextInt();
+//     }
+//     int answer = sum(a,b);
+//     System.out.println(a+"+...+"+b+"="+answer);
+// }
+
+// public static int sum(int x, int y){
+//     int num=0;
+//     for(int i=x; i<=y; i++){
+//         num+=i;
+//     }
+//     return num;
+// }
+
+//int[] y = {4, 2, 3, 4, 5, 0, 0, 0};
+//int[] x = new int[y.length];
+//computeAvgs(y);
+
+//print(y);
+// int j=1;
+// for (int i=0; i<y.length; i++){
+//     x[y.length-j] = y[i];
+//     System.out.print(x[i]);
+//     j++;
+// }
+
+	int[] A = {2, 3, 4, 5, 6, 7, 9};
+	int[] C = new int[A.length];
+	
+	for (int i = 0; i < A.length; i++) {
+	    C[A.length - (i+1)] = A[i];
+	    System.out.print(C[i]);
+
+}
 }
 
-public static int sum(int x, int y){
-    int num=0;
-    for(int i=x; i<=y; i++){
-        num+=i;
+public static int[] makeZero(int x){
+    int[] B = new int[x];
+    for(int i=0; i<x; i++){
+        B[i] = 0;
+        System.out.print(B[i]);
     }
-    return num;
+    return B;
 }
+
+public static void computeAvgs(int[] x){
+    int avg1 =0;
+    int avg2 =0;
+    int y = 0;
+    int z = 0;
+    for(int i=0; i<x.length; i++){
+        //System.out.print(x[i]);
     }
+    for(int i = 0; i<x.length; i++){
+        if(x[i] % 2 == 0){ //even
+            avg1+=x[i];
+            y+=1;
+        }
+        else{
+            avg2+=x[i];
+            z+=1;
+        }
+    }
+    avg1 = avg1 / y;
+    avg2 = avg2 / z;
+    System.out.println(avg1);
+    System.out.println(avg2);
+}
+
+public static void print(int[] x){
+    for( int i=1; x[i] != 0; i++){
+        System.out.print(x[i]);
+    }
+}
+
+
+
+}
