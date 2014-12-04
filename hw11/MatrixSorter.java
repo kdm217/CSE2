@@ -17,26 +17,70 @@ public class MatrixSorter {
         show(mat3d);
     }
     
-    public static int[][][] buildMat3d(int[][][] x){
-        for(int i=0; i< 7; i=(i*2+3)){
-            for( int j=0; j<(j+s+1); j++){
-                int[][][] threeDimArr = new int[i][j][6];
+    public static int[][][] buildMat3d(int[][][] threeDimArr){
+        int threeDimArr[][][] = new int[3][][];
+        for(int i=0; i< threeDimArr.length; i++){
+            threeDimArr[i] = new int[i*2+3]; 
+            for( int j=0; j<threeDimArr[i].length; j++){
+                threeDimArr[i][j] = new int[i+j+1];
+            }
         }
-        }
+        return threeDimArr;
     }
     
-    public static void show(int[][][] x){ //prints the array
-        String r = "";
-        int slabs = 3;
-        for(int j=0; j<=slabs; j++){
-            for (int row=0; row < x[j].length ; ++row) {
-              r += Arrays.toString(x[j][row]) + "\n";
+    public static void show(int[][][] threeDimArr){ //prints the array
+        for (int i = 0; i < threeDimArr.length; i++){ //slabs
+        System.out.println("---------------------------Slab "+ (i+1));
+            for (int b = 0; b < threeDimArr[i].length; b++){ //branches
+                for (int j = 0; j<threeDimArr[i][b]; j++){ ///fruit
+                System.out.print(A[i][b][j]);
+                System.out.print(" ");
+                }
+            System.out.println("");
             }
-            System.out.println(r);
         }
     
-    public static int[][] sort(int[][] x){
-        
+    public static int[][][] sort(int[][][] threeDimArr){
+        for(int i=0; i<threeDimArr.length; i++){
+            boolean condition = true;    
+            while(condition){
+                condition = false;
+                for(int a = 0; a<threeDimArr[i]; a++){
+                    for(int j=0; j< threeDimArr[i][a].length-1; j++){
+                        if(threeDimArr[i][a][j] > threeDimArr[i][a][j+1]){
+                            int temp = threeDimArr[i][a][j];
+                            threeDimArr[i][a][j] = threeDimArr[i][a][j+1];
+                            threeDimArr[i][a][j+1] = temp;
+                            condition = true;
+                        }
+                    }
+
+                }
+                
+            }
+        }
+        return threeDimArr;
+    }
+    
+    public static int findMin(int[][][] threeDimArr){
+        int min = 0;
+        for(int i=0; i<threeDimArr.length; i++){
+            boolean condition = true;    
+            while(condition){
+                condition = false;
+                for(int a = 0; a<threeDimArr[i]; a++){
+                    for(int j=0; j< threeDimArr[i][a].length-1; j++){
+                        if(threeDimArr[i][a][j] < threeDimArr[i][a][j+1]){
+                            min = threeDimArr[i][a][j]
+                            condition = true;
+                        }
+                    }
+
+                }
+                
+            }
+        }
+        return min;
     }
 }
 

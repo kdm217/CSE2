@@ -2,7 +2,7 @@
 //Keri McGlothlin
 //CSE 002-110
 //September 24th
-//Random Games
+//Ragged Array
 //This program helps with arrays.
 
 public class RaggedArray{ //main method
@@ -17,30 +17,40 @@ public class RaggedArray{ //main method
         A[3] = new int[14];
         A[4] = new int[17];
         
-        // int j=0;
-        // for(int i=5; i< 17; i=(i*3+5)){
-        //     A[j] = new int[i];
-        //     j++;
-        // }
-        
-        // for (int x = 0; x < 5; x++) {
-        //     for(int i=0; i<= (i*3+5); i++) {
-        //         int rand = (int)(Math.random() * 39);
-        //         A[x][i]= rand;
-        //     }
-        // }
-        
         for (int i = 0; i < A.length; i++){
             for (int b = 0; b < A[i].length; b++){
                 A[i][b] = (int)(Math.random() * 39);
+                System.out.print(A[i][b]);
+                System.out.print(" ");
+            }
+            System.out.println("");
+        }
+        
+        for(int i=0; i<A.length; i++){
+            boolean condition = true;    
+            while(condition){
+                condition = false;
+                for(int j=0; j< A[i].length-1; j++){
+                    if(A[i][j] > A[i][j+1]){
+                        int temp = A[i][j];
+                        A[i][j] = A[i][j+1];
+                        A[i][j+1] = temp;
+                        condition = true;
+                    }
+
+                }
+                
             }
         }
-
         
-        for (int i = 0; i < 5; i++) {
-            for (int a = 0; a <= (i*3+5); a++)
-                System.out.print(A[i][a] + " ");
-                System.out.println();
+        for (int i = 0; i < A.length; i++){
+            for (int b = 0; b < A[i].length; b++){
+                System.out.print(A[i][b]);
+                System.out.print(" ");
             }
+            System.out.println("");
+        }
+        
+
     }
 }

@@ -46,26 +46,44 @@ public class ArrayMath {
     }
     
     public static double[] addArrays(double[] x, double[] y){
-        int length = 0;
-        double[] result = new double[length];
+        double z[] = new double[x.length];
+        double[] result = new double[x.length];
+        
         if(x.length >= y.length){
+            double zy[] = new double[x.length];
+            for (int i=0; i< y.length; i++){
+                zy[i] = y[i];
+            }
             for(int i=y.length; i<x.length; i++){
-                y[i] = 0;
+                zy[i] = 0;
             }
+            for(int i=0; i<x.length; i++){
+                result[i] = x[i] + zy[i];
+            }
+        return result;
         }
+        
         else if(y.length >= x.length){
-            for(int i=x.length; i<y.length; i++){
-                x[i] = 0;
+            double zx[] = new double[x.length];
+            for (int i=0; i< x.length; i++){
+                zx[i] = y[i];
             }
-        }
-        length = x.length;
-        for(int i=0; i<x.length; i++){
-            result[i] = x[i] + y[i];
+            for(int i=x.length; i<y.length; i++){
+                zx[i] = 0;
+            }
+            for(int i=0; i<x.length; i++){
+                result[i] = zx[i] + y[i];
+            }
+        return result;
         }
         return result;
+
     }
     
     public static boolean equals(double[] x, double[] y){
+        if (x.length != y.length){
+            return false;
+        }
         int count = 0;
         for (int i=0; i<x.length; i++){
             if (x[i] != y[i]){
@@ -78,7 +96,7 @@ public class ArrayMath {
         if (count == (x.length-1)){
             return true;
         }
-        return false;
+        return true;
     }
     
 }
